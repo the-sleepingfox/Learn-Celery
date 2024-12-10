@@ -1,0 +1,16 @@
+version: '3.11'
+
+services: 
+    django:
+        container_name: django
+        build:
+            context: ./learn_celery
+        command: python manage.py runserver 0.0.0.0:8000
+        volumes:
+            - ./learn_celery:/usr/src/app/
+        ports:
+            - 8001:8000
+        environment:
+            - DEBUG=1
+            - SECRET_KEY=Athebby65ggrtyver45grvrgrr
+            - ALLOWED_HOST=localhost, 127.0.0.1
